@@ -52,7 +52,7 @@ class _CameraScreenState extends State<CameraScreen> {
   void navigateToReviewScreen(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ReviewScreen(imagePaths: cameraController.imagePaths)),
+      MaterialPageRoute(builder: (context) => ReviewScreen(initialImagePaths: cameraController.imagePaths)),
     );
   }
 
@@ -125,7 +125,6 @@ class _CameraScreenState extends State<CameraScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           _buildScanNotesButton(),
-          _buildTypeNotesButton(),
         ],
       ),
     );
@@ -147,20 +146,6 @@ class _CameraScreenState extends State<CameraScreen> {
     );
   }
 
-  Widget _buildTypeNotesButton() {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          cameraController.isScanNotesActive = false;
-        });
-      },
-      child: _buildDynamicButton(
-        label: 'Type Notes',
-        imagePath: 'assets/textnotes.png',
-        isActive: !cameraController.isScanNotesActive,
-      ),
-    );
-  }
 
   Widget _buildDynamicButton({required String label, required String imagePath, required bool isActive}) {
     return Column(

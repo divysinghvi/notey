@@ -28,6 +28,9 @@ class ThemeController extends GetxController {
       isDarkMode.value ? roundfillerdark : tertiaryColor;
        Color get darkmodefiller =>
       isDarkMode.value ? darkmodebtn : roundfiller;
+  Color get NoteColorHome =>
+      isDarkMode.value ? noteDarkColor : noteLightColor;
+
 
 
   void toggleTheme() {
